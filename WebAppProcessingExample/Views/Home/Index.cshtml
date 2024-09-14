@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+<div class="container">
+    <form asp-action="Upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>IsProccessed</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.Name</td>
+                    <td><img src="@d.ImageUrl" style="width:100px;height:100px" /></td>
+                    <td>@d.IsProcessed</td>
+                    <td>@d.Result</td>
+                </tr>
+            }
+        </tbody>
+    </div>
